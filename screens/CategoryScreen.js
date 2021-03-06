@@ -1,24 +1,32 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
+import CATEGORIES from '../data/dummy-data';
+
+const renderGridItem = (itemData) => (
+    <View style={styles.gridItems}>
+        <Text> {itemData.item.title} </Text>
+    </View>
+);
 
 const CategoryScreen = ({ navigation }) => (
-    <View style={styles.screen}>
-        <Text> Category Screen RN </Text>
-        <Button
-            title="Go to Meals"
-            onPress={() => {
-                // navigation.navigate({ routeName: 'CategoryMeals' });
-                // navigation.push('CategoryMeals');
-                navigation.replace('CategoryMeals');
-            }}
-        />
-    </View>
+    <FlatList
+        keyExtractor={(item, index) => item.id}
+        data={CATEGORIES}
+        renderItem={renderGridItem}
+        numColumns={2}
+    />
 );
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    gridItems: {
+        flex: 1,
+        margin: 15,
+        height: 150,
     },
 });
 
