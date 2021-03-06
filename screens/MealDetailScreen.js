@@ -1,9 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
-const MealDetailScreen = () => (
+const MealDetailScreen = ({ navigation }) => (
     <View style={styles.screen}>
         <Text> Meal Details Screen </Text>
+        <Button
+            title="Go to back"
+            onPress={() => {
+                // navigation.goBack();
+                navigation.popToTop();
+            }}
+        />
     </View>
 );
 const styles = StyleSheet.create({
