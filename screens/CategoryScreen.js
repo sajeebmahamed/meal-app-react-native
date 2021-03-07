@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import CategoryGridTile from '../components/CategoryGridTile';
-import CATEGORIES from '../data/dummy-data';
+import { CATEGORIES } from '../data/dummy-data';
 
 const CategoryScreen = ({ navigation }) => {
     const renderGridItem = (itemData) => (
